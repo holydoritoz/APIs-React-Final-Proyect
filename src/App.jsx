@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css'
+import './assets/styles/App.css'
 import { MiApi } from './components/MiApi';
 import { NavBar } from './components/NavBar';
 

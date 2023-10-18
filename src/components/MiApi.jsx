@@ -24,11 +24,10 @@ export const MiApi = () => {
         } else {
         setCharacters([]);
         setHasResults(false);
-        setError('No se ha podido encontrar la palabra buscada');
         }
     } catch (error) {
         console.error('Error fetching data:', error);
-        setError('Ocurrió un error al buscar los datos');
+        setError('No se ha podido encontrar la palabra buscada');
     }
 };
 
