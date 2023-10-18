@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Characters } from './Characters'
-import { Pagination } from './Pagination'
 import { Buscador } from './Buscador'
 
 export const MiApi = () => {
     const [characters, setCharacters] = useState([]);
-    const [info, setInfo] = useState({});
     const [searchTerm, setSearchTerm] = useState('');
     const [error, setError] = useState('');
     const [hasResults, setHasResults] = useState(true);
@@ -21,12 +19,10 @@ export const MiApi = () => {
 
         if (jsonData.results.length > 0) {
         setCharacters(jsonData.results);
-        setInfo(jsonData.info);
         setHasResults(true);
         setError('');
         } else {
         setCharacters([]);
-        setInfo({});
         setHasResults(false);
         setError('No se ha podido encontrar la palabra buscada');
         }
@@ -40,19 +36,6 @@ export const MiApi = () => {
     fetchData(); 
     });
 
-    const onPrevious = () => {
-    if (info.prev) {
-        setSearchTerm('');
-        fetchData(info.prev);
-    }
-    };
-
-    const onNext = () => {
-    if (info.next) {
-        setSearchTerm('');
-        fetchData(info.next);
-    }
-    };
     return (
     <>
     <div className="container mt-5">
@@ -66,26 +49,13 @@ export const MiApi = () => {
 
         {hasResults && (
         <>
-        <Pagination
-        prev={info.prev}
-        next={info.next}
-        onPrevious={onPrevious}
-        onNext={onNext} />
-
         <div className="row">
         <Characters
         characters={characters} />
         </div>
-
-        <Pagination
-        prev={info.prev}
-        next={info.next}
-        onPrevious={onPrevious}
-        onNext={onNext} />
         </>
         )}
     </div>
-
     </>
 );
 };

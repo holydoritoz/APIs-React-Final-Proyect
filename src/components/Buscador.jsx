@@ -11,12 +11,12 @@ export const Buscador = ({ onSearch  }) => {
     const handleInputChange = (event) => {
       const term = event.target.value;
       setSearchTerm(term);
-      onSearch(term); // Llamar a la función de búsqueda con el término actualizado
+      onSearch(term);
     };
 
     return (
     <Container className='d-flex justify-content-center'>
-        <InputGroup className="mt-4 w-50">
+        <InputGroup className="my-4 w-50">
         <InputGroup.Text id="basic-addon1">
                 <i className="fa-solid fa-magnifying-glass"></i>
             </InputGroup.Text>
