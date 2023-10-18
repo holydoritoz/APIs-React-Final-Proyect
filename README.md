@@ -1,9 +1,10 @@
-# React + Vite
+# APIs - Final proyect - Desafio Latam
+ Rick and Morty landing page
+ #
+ ✔ Proyect API: https://rickandmortyapi.com/api/character 
+ #
+ 🟢DEMO LIVE HERE --->
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Rick and Morty landing page
+![image](https://github.com/holydoritoz/APIs-React-Final-Proyect/assets/54608904/f79c2501-87eb-469e-b8d0-6c3cdd78c6e7)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# APIs-React-Final-Proyect
