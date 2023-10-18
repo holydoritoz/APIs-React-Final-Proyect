@@ -33,6 +33,6 @@ export const Buscador = ({ onSearch  }) => {
 }
 
 Buscador.propTypes = {
-  onSearch: PropTypes.string
+  onSearch: PropTypes.func
 };
 
