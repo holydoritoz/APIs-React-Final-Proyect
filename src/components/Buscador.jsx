@@ -16,18 +16,18 @@ export const Buscador = ({ onSearch  }) => {
 
     return (
     <Container className='d-flex justify-content-center'>
-        <InputGroup className="my-4 w-50">
-        <InputGroup.Text id="basic-addon1">
-                <i className="fa-solid fa-magnifying-glass"></i>
-            </InputGroup.Text>
-            <Form.Control
-                type="text"
-                className="form-control"
-                placeholder="Buscar personajes"
-                value={ searchTerm } 
-                onChange={ handleInputChange }
-            />
-            </InputGroup>
+    <InputGroup className="w-50">
+    <InputGroup.Text id="basic-addon1">
+        <i className="fa-solid fa-magnifying-glass"></i>
+    </InputGroup.Text>
+        <Form.Control
+        type="text"
+        className="form-control"
+        placeholder="Buscar personajes"
+        value={ searchTerm } 
+        onChange={ handleInputChange }
+        />
+        </InputGroup>
     </Container>
 );
 }

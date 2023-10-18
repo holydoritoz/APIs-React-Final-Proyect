@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Characters } from './Characters'
 import { Buscador } from './Buscador'
+import { Ordenador } from './Ordenaror'
+
 
 export const MiApi = () => {
     const [characters, setCharacters] = useState([]);
@@ -33,7 +35,7 @@ export const MiApi = () => {
 
     useEffect(() => {
     fetchData(); 
-    });
+    }); // Sin un arreglo de dependencia, el efecto se ejecutará despues de cada renderización del componente sin observar ningun cambio de estado de variables
 
     return (
     <>
@@ -41,6 +43,8 @@ export const MiApi = () => {
         <Buscador
         onSearch={ setSearchTerm }
         />
+
+        <Ordenador/>
 
         {
         error && <div className="alert alert-danger">{ error }</div>
