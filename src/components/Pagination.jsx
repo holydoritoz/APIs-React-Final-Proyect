@@ -18,7 +18,7 @@ return (
             <li className="page-item">
             <button
             onClick={ handlePrevious }
-            className="page-link">Previous</button>
+            className="page-link text-dark">Previous</button>
         </li>
         :
         null
@@ -28,7 +28,7 @@ return (
             <li className="page-item">
             <button
             onClick={ handleNext }
-            className="page-link">Next</button>
+            className="page-link text-dark">Next</button>
         </li>
         :
         null

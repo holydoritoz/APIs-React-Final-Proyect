@@ -1,42 +1,71 @@
-import { useEffect, useState } from "react"
-import { Characters } from "./Characters"
+import { useEffect, useState } from 'react'
+import { Characters } from './Characters'
 import { Pagination } from './Pagination'
+import { Buscador } from './Buscador'
 
 export const MiApi = () => {
-    const [characters, setCharacters] = useState([]); // Array vació, para que se llene con el mapeo a posterior
+    const [characters, setCharacters] = useState([]);
     const [info, setInfo] = useState({});
+    const [searchTerm, setSearchTerm] = useState('');
+  
+    useEffect(() => {
+    const fetchData = async () => {
+    const url = searchTerm ?
+    `https://rickandmortyapi.com/api/character/?name=${searchTerm}`
+    :
+    'https://rickandmortyapi.com/api/character';
 
-    const InitialtUrl = 'https://rickandmortyapi.com/api/character';
-
-    const fetchCharacters = async (url) => {
     try {
         const res = await fetch(url);
         const jsonData = await res.json();
-        setCharacters(jsonData.results)  // Obtengo la data de los personajes
-        setInfo(jsonData.info) // Obtengo la data de información para la paginación
+        setCharacters(jsonData.results);
+        setInfo(jsonData.info);
+        
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        }
+    };
 
-    } catch(error) {
-        console.log(error)
-    }};
-    
-    useEffect(()=> {
-        fetchCharacters(InitialtUrl);
-    }, []) // Dependencia vacía ejecutamos el código solo una vez
+      fetchData(); // Llamada inicial sin searchTerm para obtener todos los personajes
 
-    //!Funciones props, para manejar la paginación
+    return () => {
+        // Limpiar el término de búsqueda al salir del componente
+        setSearchTerm('');
+    };
+    }, [searchTerm]);
 
     const onPrevious = () => {
-        fetchCharacters(info.prev);
+    if (info.prev) {
+        setSearchTerm('');
+        fetchData(info.prev);
     }
+    };
 
     const onNext = () => {
-        fetchCharacters(info.next);
-
+    if (info.next) {
+        setSearchTerm('');
+        fetchData(info.next);
     }
+    };
+
+    const fetchData = async (url) => {
+    try {
+        const res = await fetch(url);
+        const jsonData = await res.json();
+        setCharacters(jsonData.results);
+        setInfo(jsonData.info);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+    };
 
     return (
     <>
     <div className="container mt-5">
+        <Buscador
+        onSearch={setSearchTerm}
+        />
+
         <Pagination
         prev = {info.prev}
         next = {info.next}
