@@ -1,14 +1,22 @@
-
 import PropTypes from 'prop-types'
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
 
-export const NavBar = ({ pageName }) => {
+export const NavBar = () => {
 return (
 <>
-  <nav className='navbar navbar-dark bg-dark'>
-    <div className='container'>
-      <a href="#" className='navbar-brand text-uppercase'>{ pageName }</a>
-    </div>
-  </nav>
+<Navbar className="bg-body-tertiary">
+        <Container className='d-flex justify-content-center'>
+          <Navbar.Brand href="#home">
+            <img
+              width='400px'
+              src='https://assets.stickpng.com/images/58f37720a4fa116215a9240f.png'
+              className="d-inline-block align-top"
+              alt="React Bootstrap logo"
+            />
+          </Navbar.Brand>
+        </Container>
+      </Navbar>
 </>
 )
 }

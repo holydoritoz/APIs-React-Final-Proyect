@@ -51,13 +51,16 @@ export const MiApi = () => {
         }
 
         {hasResults && (
+        
         <>
         <div className="row">
         <Characters
         characters={characters} />
         </div>
         </>
+        
         )}
+
     </div>
     </>
 );

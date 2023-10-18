@@ -7,9 +7,7 @@ function App() {
 
   return (
     <>
-    <NavBar
-    pageName="Rick and Morty App"
-    />
+    <NavBar/>
     <MiApi/>
     </>
   )
