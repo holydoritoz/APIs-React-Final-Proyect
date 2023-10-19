@@ -9,33 +9,48 @@ export const MiApi = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [error, setError] = useState('');
     const [hasResults, setHasResults] = useState(true);
+    const [sortOrder, setSortOrder] = useState('asc')
 
     const fetchData = async () => {
         let apiUrl = 'https://rickandmortyapi.com/api/character';
         if (searchTerm) {
-        apiUrl += `?name=${searchTerm}`;
+            apiUrl += `?name=${searchTerm}`;
         }
         try {
-        const res = await fetch(apiUrl);
-        const jsonData = await res.json();
-
-        if (jsonData.results.length > 0) {
-        setCharacters(jsonData.results);
-        setHasResults(true);
-        setError('');
-        } else {
-        setCharacters([]);
-        setHasResults(false);
+            const res = await fetch(apiUrl);
+            const jsonData = await res.json();
+    
+            if (jsonData.results.length > 0) {
+                let sortedCharacters = jsonData.results;
+    
+                if (sortOrder === 'asc') {
+                    // Ordenar de A-Z
+                    sortedCharacters = sortedCharacters.sort((a, b) => a.name.localeCompare(b.name));
+                } else {
+                    // Ordenar de Z-A
+                    sortedCharacters = sortedCharacters.sort((a, b) => b.name.localeCompare(a.name));
+                }
+    
+                setCharacters(sortedCharacters);
+                setHasResults(true);
+                setError('');
+            } else {
+                setCharacters([]);
+                setHasResults(false);
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            setError('No se ha podido encontrar la palabra buscada');
         }
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        setError('No se ha podido encontrar la palabra buscada');
-    }
-};
+    };
 
     useEffect(() => {
     fetchData(); 
-    }); // Sin un arreglo de dependencia, el efecto se ejecutará despues de cada renderización del componente sin observar ningun cambio de estado de variables
+    },[searchTerm,sortOrder ]); 
+
+    const handleOrdenChange = (order) => {
+        setSortOrder(order);
+    }
 
     return (
     <>
@@ -44,15 +59,15 @@ export const MiApi = () => {
         <Buscador
         onSearch={ setSearchTerm }
         />
-        <Ordenador/>
-        {
-        error && <div className="alert alert-danger">{ error }</div>
-        }
-        { hasResults && (
+        <Ordenador
+        onOrdenChange={ handleOrdenChange }
+        />
+        {error && <div className="alert alert-danger">{ error }</div>}
+        {hasResults && (
         <>
         <div className="row">
-            <Characters
-            characters={characters} />
+        <Characters
+        characters={characters} />
         </div>
         </>
         )}
