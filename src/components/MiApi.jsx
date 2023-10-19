@@ -58,7 +58,7 @@ export const MiApi = () => {
         characters={characters} />
         </div>
         </>
-        
+
         )}
 
     </div>
