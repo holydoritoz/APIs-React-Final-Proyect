@@ -3,7 +3,6 @@ import { Footer } from './components/Footer';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './assets/styles/App.css'
 
 function App() {
 
