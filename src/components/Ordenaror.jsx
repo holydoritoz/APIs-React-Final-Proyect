@@ -5,7 +5,15 @@ import Container from 'react-bootstrap/Container';
 
 export const Ordenador = ({ onOrdenChange }) => {
 const handleOrdenChange = (e) => {
-    onOrdenChange(e.target.value);
+    const selectedValue =  e.target.value;
+
+    let sortOrder = 'asc'; // por defecto orden ascendente
+    
+    if(selectedValue === '2') {
+        sortOrder = 'desc'; // Si el valor es '2', orden descendente
+    }
+    
+    onOrdenChange(sortOrder)
 };
 
 return (
