@@ -39,7 +39,8 @@ export const MiApi = () => {
 
     return (
     <>
-    <div className="container mt-5">
+    <div className="container mt-5"
+    >
         <Buscador
         onSearch={ setSearchTerm }
         />
