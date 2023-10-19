@@ -39,28 +39,23 @@ export const MiApi = () => {
 
     return (
     <>
-    <div className="container mt-5">
+    <div className="container mt-5"
+    >
         <Buscador
         onSearch={ setSearchTerm }
         />
-
         <Ordenador/>
-
         {
         error && <div className="alert alert-danger">{ error }</div>
         }
-
-        {hasResults && (
-        
+        { hasResults && (
         <>
         <div className="row">
-        <Characters
-        characters={characters} />
+            <Characters
+            characters={characters} />
         </div>
         </>
-
         )}
-
     </div>
     </>
 );

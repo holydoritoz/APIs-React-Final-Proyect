@@ -9,18 +9,18 @@ return (
                     <div className='card' style={{minWidth: "200px"}}>
                         <img src={ item.image } alt="" />
                         <div className='card-body'> 
-                            <h5 className='card-title'>{item.name}</h5>
+                            <h5 className='card-title fs-3'>{item.name}</h5>
                             <hr />
-                            <p>species: {item.species}</p>
-                            <p>location: {item.location.name}</p>
+                            <p><i className="fa-solid fa-spaghetti-monster-flying"></i> {item.species}</p>
+                            <p><i className="fa-solid fa-venus-mars"></i> {item.gender}</p>
+                            <p><i className="fa-solid fa-location-dot"></i> {item.location.name}</p>
                         </div>
                     </div>
                 </div>
             ))}
 
     </div>
-)
-}
+)}
 
 Characters.propTypes = {
     characters: PropTypes.array
