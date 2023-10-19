@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from 'react'
 import { Characters } from './Characters'
 import { Buscador } from './Buscador'
-import { Ordenador } from './Ordenaror'
+import { Ordenador } from './Ordenador'
 
 
 export const MiApi = () => {
@@ -49,14 +49,12 @@ export const MiApi = () => {
     fetchData(); 
     },[searchTerm,sortOrder,fetchData]); 
 
-    const handleOrdenChange = (order) => {
+    const handleOrdenChange = (order) => { // order 'asc' or 'desc"
         setSortOrder(order);
     }
 
     return (
     <>
-    <div className="container-fluid p-5"
-    >
         <Buscador
         onSearch={ setSearchTerm }
         />
@@ -72,7 +70,6 @@ export const MiApi = () => {
         </div>
         </>
         )}
-    </div>
     </>
 );
 };
