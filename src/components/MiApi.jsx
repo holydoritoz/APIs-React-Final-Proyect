@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { Characters } from './Characters'
 import { Buscador } from './Buscador'
 import { Ordenador } from './Ordenaror'
@@ -11,7 +11,7 @@ export const MiApi = () => {
     const [hasResults, setHasResults] = useState(true);
     const [sortOrder, setSortOrder] = useState('asc')
 
-    const fetchData = async () => {
+    const fetchData = useCallback(async () => {
         let apiUrl = 'https://rickandmortyapi.com/api/character';
         if (searchTerm) {
             apiUrl += `?name=${searchTerm}`;
@@ -42,11 +42,12 @@ export const MiApi = () => {
             console.error('Error fetching data:', error);
             setError('No se ha podido encontrar la palabra buscada');
         }
-    };
+    },[searchTerm, sortOrder]);
 
+    //incluimos fetchData en el array de dependencias y utilizamos en callback para memorizar la función
     useEffect(() => {
     fetchData(); 
-    },[searchTerm,sortOrder ]); 
+    },[searchTerm,sortOrder,fetchData]); 
 
     const handleOrdenChange = (order) => {
         setSortOrder(order);
@@ -54,7 +55,7 @@ export const MiApi = () => {
 
     return (
     <>
-    <div className="container mt-5"
+    <div className="container-fluid p-5"
     >
         <Buscador
         onSearch={ setSearchTerm }
