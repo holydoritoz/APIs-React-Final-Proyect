@@ -43,24 +43,18 @@ export const MiApi = () => {
         <Buscador
         onSearch={ setSearchTerm }
         />
-
         <Ordenador/>
-
         {
         error && <div className="alert alert-danger">{ error }</div>
         }
-
-        {hasResults && (
-        
+        { hasResults && (
         <>
         <div className="row">
-        <Characters
-        characters={characters} />
+            <Characters
+            characters={characters} />
         </div>
         </>
-
         )}
-
     </div>
     </>
 );
