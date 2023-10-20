@@ -6,5 +6,5 @@
  📍  Proyect API: https://rickandmortyapi.com/api/character 
 
 # Rick and Morty landing page
-![image](https://github.com/holydoritoz/APIs-React-Final-Proyect/assets/54608904/e1da0945-804f-4cc1-961f-4d0930fdd563)
+![image](https://github.com/holydoritoz/APIs-React-Final-Proyect/assets/54608904/48b2b8b4-656c-43ca-a37d-9a81323114ea)
 
