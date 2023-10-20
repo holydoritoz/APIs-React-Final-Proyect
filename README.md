@@ -1,7 +1,7 @@
 # APIs - Final proyect - Desafio Latam
  Rick and Morty landing page
  #
- 🔴 Explicación detallada del código en Youtube: xx
+ 🔴 Explicación detallada del código en Youtube: https://youtu.be/cveRw8ytnH4
 
  📍  Proyect API: https://rickandmortyapi.com/api/character 
 
